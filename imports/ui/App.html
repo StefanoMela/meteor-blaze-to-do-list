@@ -1,21 +1,26 @@
 <body>
-    {{> mainContainer }}
+  {{> mainContainer }}
 </body>
 
 <template name="mainContainer">
-    <div class="container">
-        <header>
-            <h1>Todo List</h1>
-        </header>
+  <div class="container">
+    <header>
+      <h1>Todo List</h1>
+    </header>
+    {{> form}}
+    <ul>
+      {{#each tasks}} {{> task}} {{/each}}
+    </ul>
+  </div>
+</template>
 
-        <ul>
-            {{#each tasks}}
-                {{> task}}
-            {{/each}}
-        </ul>
-    </div>
+<template name="form">
+  <form class="task-form">
+    <input type="text" name="text" placeholder="Type to add new tasks" />
+    <button type="submit">Add Task</button>
+  </form>
 </template>
 
 <template name="task">
-    <li>{{text}}</li>
+  <li>{{text}}</li>
 </template>
